@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/bootstrap4-toggle.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="position-relative">
+  <div class="toast bg-danger text-white" id="toast" data-autohide="false">
+    <div class="toast-body p-3 fw-bold">
+      Please enter required fields
+
+    </div>
+  </div>
+  <div class="container mt-5 bg-white p-5">
+    <div class="d-flex justify-content-between border-bottom border-1">
+      <p>Delivery time slots</p>
+      <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
+    </div>
+    <form class="my-4" id="timeSlotForm">
+      <div class="form-group d-flex align-items-center mt-2">
+        <label class="form-check-label me-3" for="deliveryTime">Delivery Time</label>
+ 
+        <input id="deliveryTime" data-toggle="toggle" checked type="checkbox" data-on="Yes" data-off="No" data-offstyle="Default">
+
+      </div>
+      <div id="deliveryDetails">
+             <div class="row my-4">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="selectDay" class="form-label">Select Day <span class="text-danger">*</span> </label>
+            <select id="selectDay" class="form-control form-select" required >
+              <option value="" disabled selected hidden>Please select a day...</option>
+              <option value="sunday">Sunday</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
+         
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="minutes" class="form-label">Every minutes <span class="text-danger">*</span> </label>
+            <input type="number" name="minutes" class="form-control" id="minutes" min="0" value="" required>
+            <div class="alert alert-danger" id="minutes-alert">Please enter minimum 20 minutes</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="timeFrom" class="form-label">From time <span class="text-danger">*</span> </label>
+            <input type="time" class="form-control" id="timeFrom" name="timeFrom" value="" required>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="toTime" class="form-label">To time <span class="text-danger">*</span> </label>
+            <input type="time" class="form-control" id="toTime" name="toTime" value="" required>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button type="button" class="btn btn-primary rounded-0" id="create-time-slot">Create time slots</button>
+          <button type="button" class="btn btn-danger rounded-0" id="reset-time-slot" onclick="resetTimeSlots()">Cancel</button>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <label for="hours" class="form-label">Minimum required time to process orders (Hours)</label>
+        <div class="col-md-3 form-group">
+          <input type="number" class="form-control" id="hours" name="hours" value="0" min="0">
+        </div>
+      </div>
+      <table class="table table-responsive table-striped" id="timeTable">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Select Day</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          
+        </tbody>
+      </table>
+      </div>
+ 
+    </div>
+    </form>
+
+    <div class="d-flex justify-content-end border-top border-1 p-3">
+      
+      <button type="submit" class="btn btn-outline-secondary">Save</button>
+    </div>
+  </div>
+
+
+
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap4-toggle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
